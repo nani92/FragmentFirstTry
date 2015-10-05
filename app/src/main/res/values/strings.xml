@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FragmentTry</string>
+    <string name="action_settings">Settings</string>
+    <string name="login_btn" />
+    <string name="login_btn2">LOGIN</string>
+    <string name="link_Register">No Account?</string>
+    <string name="btn_register">Register</string>
+</resources>
