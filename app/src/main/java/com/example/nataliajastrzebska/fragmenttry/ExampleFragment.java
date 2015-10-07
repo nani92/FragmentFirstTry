@@ -21,7 +21,6 @@ import java.util.regex.Pattern;
 public class ExampleFragment extends Fragment {
 
     OnRegisterClickedListener a;
-    OnClickBtnListener b;
     View vi;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,14 +64,9 @@ public class ExampleFragment extends Fragment {
         super.onAttach(activity);
         try {
             a = (OnRegisterClickedListener) activity;
-            b = (OnClickBtnListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement OnArticleSelectedListener");
         }
-    }
-
-    public interface OnClickBtnListener {
-        public void onClickBtn();
     }
 
     public interface OnRegisterClickedListener {
@@ -97,30 +91,5 @@ public class ExampleFragment extends Fragment {
         return true;
     }
 
-    boolean isValidationSuccesful (View view){
-        TextView tv1 = (TextView) view.findViewById(R.id.textView4);
-        TextView tv2 = (TextView) view.findViewById(R.id.textView5);
-        TextView tv3 = (TextView) view.findViewById(R.id.textView6);
-        tv1.setText("");
-        tv2.setText("");
-        tv3.setText("");
-        EditText name = (EditText) view.findViewById(R.id.editText3);
-
-        if (isEmailNotValid(name.getText().toString())) {
-            tv1.setText("Wrong! Name should be E-mail");
-            return false;
-        }
-        EditText pass = (EditText) view.findViewById(R.id.editText4);
-        if (pass.getText().length() < 8 || pass.getText().length()> 16){
-            tv2.setText("Wrong! Password should have 8-16 characters.");
-            return false;
-        }
-        EditText pass2 = (EditText) view.findViewById(R.id.editText4);
-        if (!pass.getText().toString().equals(pass2.getText().toString())) {
-            tv3.setText("Passwords doesnt match");
-            return false;
-        }
-        return false;
-    }
 
 }

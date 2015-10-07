@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends FragmentActivity implements ExampleFragment.OnRegisterClickedListener, ExampleFragment.OnClickBtnListener {
+public class MainActivity extends FragmentActivity implements ExampleFragment.OnRegisterClickedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,25 +25,18 @@ public class MainActivity extends FragmentActivity implements ExampleFragment.On
         ExampleFragment fragment = new ExampleFragment();
         fragmentTransaction.add(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
-
-        RegisterFragment registerFragment = new RegisterFragment();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -56,21 +49,5 @@ public class MainActivity extends FragmentActivity implements ExampleFragment.On
         // Create fragment and give it an argument specifying the article it should show
         RegisterFragment newFragment = new RegisterFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newFragment).addToBackStack(null).commit();
-        //android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack so the user can navigate back
-        //transaction.replace;
-        //transaction.addToBackStack(null);
-
-// Commit the transaction
-        //transaction.commit();
     }
-
-    @Override
-    public void onClickBtn() {
-
-    }
-
-
 }
